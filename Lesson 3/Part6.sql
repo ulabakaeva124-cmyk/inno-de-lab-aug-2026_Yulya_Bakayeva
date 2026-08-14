@@ -53,11 +53,8 @@ INSERT INTO Shippings (shipping_id, status, customer) VALUES
 
 --Task 9: Calculating window aggregates
 SELECT 
-	first_name, 
-	last_name, 
-	item, 
-	amount,
+	order_id, 
+	customer_id,
 	SUM(amount) OVER(PARTITION BY customer_id) AS total_by_customer
 FROM
-	customers
-	INNER JOIN Orders USING(customer_id);
+	Orders;

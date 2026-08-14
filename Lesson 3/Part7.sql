@@ -58,7 +58,7 @@ SELECT
 	COUNT(order_id) AS total_orders,
 	SUM(amount) AS total_amount
 FROM
-	Customers
+	Customers c
 	INNER JOIN Orders USING(customer_id)
 WHERE customer_id IN 
 	(
@@ -66,5 +66,5 @@ WHERE customer_id IN
 	FROM Shippings
 	WHERE status = 'Delivered'
 	)
-GROUP BY full_name, country
+GROUP BY c.customer_id, c.first_name, c.last_name, c.country
 HAVING COUNT(order_id) >= 2 

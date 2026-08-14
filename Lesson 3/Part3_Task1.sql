@@ -52,7 +52,7 @@ INSERT INTO Shippings (shipping_id, status, customer) VALUES
 (10, 'Delivered', 10); 
 
 --Task 5: Grouping customers by country
-SELECT country, COUNT(customer_id)
+SELECT country, COUNT(customer_id) AS count
 FROM
 	customers
 GROUP BY country;
