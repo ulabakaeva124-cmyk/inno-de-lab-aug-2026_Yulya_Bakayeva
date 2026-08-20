@@ -1,7 +1,11 @@
 CREATE TABLE dim_date
 (
 Date_id SERIAL PRIMARY KEY,
-Purchase_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+Year INTEGER NOT NULL,
+Quarter INTEGER NOT NULL,
+Month INTEGER NOT NULL,
+Day_of_week INTEGER NOT NULL,
+Weekend BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE area 
@@ -40,6 +44,9 @@ CREATE TABLE dim_order
 (
 Order_id  SERIAL PRIMARY KEY,
 Status_id INTEGER NOT NULL,
+way_to_pay VARCHAR(50) NOT NULL,
+sales_channel VARCHAR(50) DEFAULT 'Сайт',
+discount INTEGER,
 FOREIGN KEY (Status_id) REFERENCES status(Status_id)
 );
 
@@ -55,7 +62,8 @@ Service_price DECIMAL (10, 2) NOT NULL,
 FOREIGN KEY (Event_id) REFERENCES event(Event_id),
 FOREIGN KEY (Visitor_id) REFERENCES visitor(Visitor_id),
 FOREIGN KEY(Date_id) REFERENCES dim_date(Date_id),
-FOREIGN KEY(Order_id) REFERENCES dim_order(Order_id)
+FOREIGN KEY(Order_id) REFERENCES dim_order(Order_id),
+CONSTRAINT unique_event_visitor UNIQUE(event_id, visitor_id)
 );
 
 --Generated data for queries:
@@ -63,16 +71,6 @@ INSERT INTO status (status_name) VALUES
 ('Оплачено'),
 ('Возврат'),
 ('Отменено');
-
-INSERT INTO dim_order (status_id) VALUES 
-(1), (1), (1), (2), (1);
-
-INSERT INTO dim_date (purchase_date) VALUES 
-('2026-06-01 10:30:00'),
-('2026-06-02 14:15:00'),
-('2026-06-05 18:40:00'),
-('2026-06-10 09:20:00'),
-('2026-06-15 12:00:00');
 
 INSERT INTO area (area_address, area_name, limit_visitors) VALUES 
 ('ул. Ленина, 10', 'Концертный зал "Минск"', 1500),
@@ -97,3 +95,16 @@ INSERT INTO fact_sales (event_id, visitor_id, date_id, order_id, purchase_price,
 (3, 4, 4, 4, 70.00, 7.00),
 (2, 1, 5, 5, 25.00, 2.50);
 
+INSERT INTO dim_date (Year, Quarter, Month, Day_of_week) VALUES 
+(2026, 2, 6, 1), -- 2026-06-01
+(2026, 2, 6, 2), -- 2026-06-02
+(2026, 2, 6, 5), -- 2026-06-05
+(2026, 2, 6, 3), -- 2026-06-10
+(2026, 2, 6, 1); -- 2026-06-15
+
+INSERT INTO dim_order (status_id, way_to_pay, sales_channel, discount) VALUES 
+(1, 'Банковская карта', 'Сайт', 0),
+(1, 'Наличные', 'Касса', 5),
+(1, 'СБП', 'Мобильное приложение', 10),
+(2, 'Банковская карта', 'Сайт', 0),
+(1, 'Банковская карта', 'Касса', 0);

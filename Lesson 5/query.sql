@@ -1,32 +1,29 @@
-SELECT event_name, COUNT(visitor_id) AS visitors --Number of visitors per event
+SELECT event_name, COUNT(DISTINCT visitor_id) AS visitors --Number of visitors per event
 FROM
-	fact_sales
-	INNER JOIN dim_order USING(order_id)
-	INNER JOIN status USING(status_id)
-	INNER JOIN event USING(event_id)
-WHERE status_name = 'Оплачено'
+	event
+	LEFT JOIN fact_sales USING(event_id)
 GROUP BY event_name
 ORDER BY visitors DESC;
 
-SELECT date_part('month', Purchase_date) AS month, --Revenue by month
+SELECT Month, --Revenue by month
     SUM(Service_price) AS total
 FROM fact_sales
 	INNER JOIN dim_date USING(date_id)
 	INNER JOIN dim_order USING(order_id)
 	INNER JOIN status USING(status_id)
 WHERE status_name = 'Оплачено'
-GROUP BY date_part('month', Purchase_date)
-ORDER BY month;
+GROUP BY Month
+ORDER BY Month;
 
-SELECT event_id, visitor_id, COUNT(sales_id) AS amount --Repeat visitors per event
+SELECT visitor_id, COUNT(sales_id) AS amount --Repeat visitors
 FROM fact_sales
 	INNER JOIN dim_order USING(order_id)
 	INNER JOIN status USING(status_id)
 WHERE status_name = 'Оплачено'
-GROUP BY event_id, visitor_id
+GROUP BY visitor_id
 HAVING COUNT(sales_id) > 1;
 
-SELECT event_id, date_part('year', Event_date) AS date_year, --Annual revenue per event
+SELECT event_id, Year, --Annual revenue per event
 	SUM(Purchase_price) AS total
 FROM fact_sales
 	INNER JOIN event USING(event_id)
@@ -34,5 +31,5 @@ FROM fact_sales
 	INNER JOIN dim_order USING(order_id)
 	INNER JOIN status USING(status_id)
 WHERE status_name = 'Оплачено'
-GROUP BY event_id, date_part('year', Event_date)
-ORDER BY event_id, date_year;
+GROUP BY event_id, Year
+ORDER BY event_id, Year;
