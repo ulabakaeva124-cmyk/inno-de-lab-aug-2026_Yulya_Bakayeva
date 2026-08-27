@@ -1,6 +1,6 @@
 #guess the number
 import random
-number = random.randint(1,21)
+number = random.randint(1,20)
 counter = 0
 while counter < 5:
     print(f'Я загадал число от 1 до 20. У тебя {5 - counter} попыток.')
