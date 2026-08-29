@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cbef4ed-4586-4144-9e8a-ac7c5c562bbc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Task 1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task 2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task 3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task 4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task 5.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task 2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task 2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task 3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task 3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task 4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task 4.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,11 +42,12 @@
     "Python.Task 2.executor": "Run",
     "Python.Task 3.executor": "Run",
     "Python.Task 4.executor": "Run",
+    "Python.Task 5.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "6ac8951a",
+    "git-widget-placeholder": "Python__7",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/inno-de-lab-aug-2026_Yulya_Bakayeva/inno-de-lab-aug-2026_Yulya_Bakayeva/Lesson 7",
     "settings.editor.selected.configurable": "preferences.pluginManager"
