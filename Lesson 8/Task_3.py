@@ -2,26 +2,26 @@ from Task_1 import DEFAULT_RETURN_INDEX_BASE
 from typing import Any
 def  calculate_overdue_fine(movie : str, days_overdue: Any, fine_rate: Any) -> tuple[float, float] | None:
     """
-        Функция проверяет данные на наличие ошибок
+        Функция обрабатывает ошибки: TypeError, ValueError, ZeroDivisionError
 
         Args:
+            movie(Any): Название фильма
             days_overdue(Any): Количество дней
             fine_rate(Any): Сумма за день
-        Return:
+        Returns:
             tuple[float, float] | None: Преобразованные данные
     """
     try:
         numeric_days = float(days_overdue)
-        days_float = float(days_overdue)
-        total_rate = days_float * fine_rate
+        total_fine = numeric_days * fine_rate
         return_index = DEFAULT_RETURN_INDEX_BASE / numeric_days
-        print(f'Фильм: "{movie}" | Итоговый штраф: {total_rate}$ | Индекс: {return_index}')
-        return total_rate, return_index
+        print(f'Фильм: "{movie}" | Итоговый штраф: {total_fine}$ | Индекс: {return_index}')
+        return total_fine, return_index
 
     except TypeError as e:
         print(f'[ОШИБКА ТИПА] Некорректный тип данных для {movie}: {e}')
     except ValueError as e:
-        print(f"[ОШИБКА ЗНАЧЕНИЯ] Невозможно преобразовать дни в число для {movie}: {e}: {days_overdue}")
+        print(f"[ОШИБКА ЗНАЧЕНИЯ] Невозможно преобразовать дни в число для {movie}: {e}")
     except ZeroDivisionError as e:
         print(f'[ОШИБКА ДЕЛЕНИЯ НА НОЛЬ] Возврат без просрочки для {movie}: {e}')
     finally:

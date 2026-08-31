@@ -1,23 +1,25 @@
 import time
+from typing import Any, Callable
+
 from Task_1 import PERFORMANCE_LOG_PREFIX, TIME_DECIMALS
 attempt = 0
 
-def  performance_logger(func):
+def  performance_logger(func: Callable[..., Any]) -> Callable[..., Any]:
     """
         Декоратор для замера времени выполнения
 
         Args:
             func (Callable[..., Any]): Целевая функция, которую необходимо обернуть
-        Return:
+        Returns:
             Callable[..., Any]: Результат выполнения функции
     """
-    def wrapper(*args, **kwargs):
+    def wrapper(*args: Any, **kwargs: Any) -> Any:
         """
             Функция рассчитывает разницу между временем запуска и завершением расчетов основной функции
 
             Args:
                 (*args, **kwargs): Любые аргументы, нужные для выполнения функции
-            Return:
+            Returns:
                 Callable[..., Any]: Результат выполнения функции
         """
         start_time = time.perf_counter()
@@ -36,7 +38,7 @@ def get_sorted_data(data : list[dict[str, str | float]]):
         Args:
             data(list[dict[str, str | float]]): Список данных
 
-        Return:
+        Returns:
             list: Отсортированный список
                 """
     sorted_data = sorted(data, key=lambda item: item['total_sales'], reverse=True)
@@ -61,8 +63,8 @@ datasets = [
 print("=== ТЕСТИРОВАНИЕ ПРОИЗВОДИТЕЛЬНОСТИ ===")
 for data_set in datasets:
     attempt += 1
-    sorted_data = get_sorted_data(data_set)
     print(f"--- ТЕСТ {attempt} ---")
+    sorted_data = get_sorted_data(data_set)
     print('Топ категорий по выручке:')
     for index, item in enumerate(sorted_data, start=1):
         print(f"{index}. {item['category']}: {item['total_sales']}")

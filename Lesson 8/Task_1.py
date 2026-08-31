@@ -9,9 +9,10 @@ def calculate_rental_batch(quantity : int, rental_rate : float, discount : float
     Args:
         quantity(int): Количество
         rental_rate(float): Цена
+        discount(float): Скидка
 
-    Return:
-        float: Кортеж с суммой и булевым значением о превышении максимальной суммы
+    Returns:
+        tuple[float, bool]: Кортеж с суммой и булевым значением о превышении максимальной суммы
     """
 
     final_sum = round(quantity * rental_rate * (1 - discount), 2)
