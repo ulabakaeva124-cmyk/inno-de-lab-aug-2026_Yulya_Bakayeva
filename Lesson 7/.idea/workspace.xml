@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cbef4ed-4586-4144-9e8a-ac7c5c562bbc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Task 5.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task 2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task 2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task 3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task 3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task 4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task 4.py" afterDir="false" />
-    </list>
+    <list default="true" id="3cbef4ed-4586-4144-9e8a-ac7c5c562bbc" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +41,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "Python__7",
+    "git-widget-placeholder": "Python__8",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/inno-de-lab-aug-2026_Yulya_Bakayeva/inno-de-lab-aug-2026_Yulya_Bakayeva/Lesson 7",
     "settings.editor.selected.configurable": "preferences.pluginManager"
