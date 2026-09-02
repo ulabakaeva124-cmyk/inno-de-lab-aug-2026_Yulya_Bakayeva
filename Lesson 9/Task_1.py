@@ -1,5 +1,5 @@
 class Trainee:
-    def __init__(self, name: str, surname: str, score: int, passing_grade: int=10):
+    def __init__(self, name: str, surname: str, score: int=0, passing_grade: int=10):
         self.name = name
         self.surname = surname
         self.passing_grade = passing_grade
@@ -11,10 +11,10 @@ class Trainee:
 
     @score.setter
     def score(self, value):
-        if value != int(value):
-            print(f'"Expected value of type int, got {type(value)}')
+        if type(value) is not int:
+            raise ValueError(f'"Expected value of type int, got {type(value)}')
         elif value < 0:
-            print(f"The score shouldn't be less than 0!")
+            raise ValueError(f"The score shouldn't be less than 0!")
         else:
             self.__score = value
 
@@ -33,11 +33,6 @@ class Trainee:
         self.score += 1
         return None
 
-    def decrease_score(self) -> None:
-        """Decreases score by 1"""
-        self.score -= 1
-        return None
-
     def miss_lecture(self) -> None:
         """Decreases score by 1"""
         self.score -= 1
@@ -51,7 +46,7 @@ class Trainee:
 
 #testing 1
 trainee = Trainee(name="Иван", surname="Иванов", score=9, passing_grade=10)
-print('=== ПРОВЕРКА УСПЕВАЕМОСТИ СТАЖЕРА ==')
+print('=== ПРОВЕРКА УСПЕВАЕМОСТИ СТАЖЕРА ===')
 trainee.do_homework()
 print(f"Баллы: {trainee.score}, Прошел курс: {trainee.is_passing()}")
 trainee.miss_lecture()
@@ -65,7 +60,7 @@ class HardworkingTrainee(Trainee):
     def do_homework(self) -> None:
         """Increases score by 2"""
         self.score += 2
-        return None\
+        return None
 
 class  AuditTrainee(Trainee):
     def is_passing(self) -> bool:
